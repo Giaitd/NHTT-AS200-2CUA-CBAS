@@ -1,17 +1,14 @@
-package com.example.autoclave_model_a.Printer;
+package com.example.autoclave_model_as___a.Printer;
 
 import android.content.Context;
 import android.os.Handler;
-import android.util.Log;
 
-import com.example.autoclave_model_a.Program.Globals;
+import com.example.autoclave_model_as___a.Program.Globals;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.TimerTask;
 
-import asim.sdk.common.Utils;
 import asim.sdk.locker.DeviceInfo;
 import asim.sdk.locker.SDKLocker;
 

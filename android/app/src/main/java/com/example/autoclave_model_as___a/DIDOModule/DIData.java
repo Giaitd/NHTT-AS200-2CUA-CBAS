@@ -1,4 +1,4 @@
-package com.example.autoclave_model_a.DIDOModule;
+package com.example.autoclave_model_as___a.DIDOModule;
 
 public class DIData {
         public boolean[] i0;

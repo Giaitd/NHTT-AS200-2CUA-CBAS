@@ -1,11 +1,11 @@
-package com.example.autoclave_model_a.DIDOModule;
+package com.example.autoclave_model_as___a.DIDOModule;
 
 
 import android.content.Context;
 import android.os.Handler;
 
 
-import com.example.autoclave_model_a.Program.Globals;
+import com.example.autoclave_model_as___a.Program.Globals;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.autoclave_model_a.RTD_AI_Module;
+package com.example.autoclave_model_as___a.RTD_AI_Module;
 
 public class RTDData {
     public double temperature1 = 0.0D;

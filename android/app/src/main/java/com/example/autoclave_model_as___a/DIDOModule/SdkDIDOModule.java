@@ -1,21 +1,17 @@
-package com.example.autoclave_model_a.DIDOModule;
+package com.example.autoclave_model_as___a.DIDOModule;
 
 import android.content.Context;
-import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.util.Log;
 
-import com.example.autoclave_model_a.Program.Globals;
+import com.example.autoclave_model_as___a.Program.Globals;
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
-import com.hoho.android.usbserial.driver.UsbSerialProber;
 
 import java.io.IOException;
-import java.util.Iterator;
 
 import asim.sdk.common.Utils;
-import asim.sdk.locker.CustomProber;
 import asim.sdk.locker.DeviceInfo;
 
 public class SdkDIDOModule {

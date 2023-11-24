@@ -1,4 +1,4 @@
-package com.example.autoclave_model_a.Printer;
+package com.example.autoclave_model_as___a.Printer;
 
 import android.app.PendingIntent;
 import android.content.Context;
@@ -9,13 +9,12 @@ import android.hardware.usb.UsbManager;
 import android.os.Build;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.autoclave_model_a.BuildConfig;
-import com.example.autoclave_model_a.Program.Globals;
+import com.example.autoclave_model_as___a.BuildConfig;
+import com.example.autoclave_model_as___a.Program.Globals;
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
 import com.hoho.android.usbserial.driver.UsbSerialProber;
@@ -48,7 +47,7 @@ public class SdkPrinter extends Fragment{
     void refresh(Context context) {
         UsbManager usbManager = (UsbManager) context.getSystemService(Context.USB_SERVICE);
         UsbSerialProber usbDefaultProber = UsbSerialProber.getDefaultProber();
-        UsbSerialProber usbCustomProber = com.example.autoclave_model_a.Printer.CustomProber.getCustomProber();
+        UsbSerialProber usbCustomProber = com.example.autoclave_model_as___a.Printer.CustomProber.getCustomProber();
 
         for(UsbDevice device : usbManager.getDeviceList().values()) {
             UsbSerialDriver driver = usbDefaultProber.probeDevice(device);
@@ -82,7 +81,7 @@ public class SdkPrinter extends Fragment{
 
         UsbSerialDriver driver = UsbSerialProber.getDefaultProber().probeDevice(device);
         if(driver == null) {
-            driver = com.example.autoclave_model_a.Printer.CustomProber.getCustomProber().probeDevice(device);
+            driver = com.example.autoclave_model_as___a.Printer.CustomProber.getCustomProber().probeDevice(device);
         }
         if(driver == null) {
             status = "connection failed: no driver for device";

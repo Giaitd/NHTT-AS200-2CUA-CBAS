@@ -4,12 +4,8 @@ import 'package:iotsupperapp/helper/language.dart';
 import 'package:iotsupperapp/other_widget/appbar_back.dart';
 import 'package:iotsupperapp/other_widget/simple_button.dart';
 import 'package:iotsupperapp/view/manual_mode/realdata_man_mode.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:get/get.dart';
 import 'package:iotsupperapp/services/screen1_service.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:iotsupperapp/view/homepage/main_screen.dart';
 import 'package:flutter/material.dart';
 
 class VHbangtayWidget extends StatefulWidget {
@@ -40,8 +36,10 @@ class _VHbangtayWidgetState extends State<VHbangtayWidget> {
       "manVacuum": screen1service.man_hck.value,
       "manBalanced": screen1service.man_cba.value,
       "manWaterCool": screen1service.man_capnuocmat.value,
-      "manAirGasgetIn": screen1service.man_capkhigioang.value,
-      "manAirGasgetOut": screen1service.man_xakhigioang.value,
+      "manAirGasket1In": screen1service.man_capkhigioang1.value,
+      "manAirGasket1Out": screen1service.man_xakhigioang1.value,
+      "manAirGasket2In": screen1service.man_capkhigioang2.value,
+      "manAirGasket2Out": screen1service.man_xakhigioang2.value,
       "manBoilerExhaust": screen1service.man_xadaynoihoi.value,
       "manPump": screen1service.man_bomnuoc.value,
     };
@@ -68,8 +66,10 @@ class _VHbangtayWidgetState extends State<VHbangtayWidget> {
           screen1service.man_hck.value = false;
           screen1service.man_cba.value = false;
           screen1service.man_capnuocmat.value = false;
-          screen1service.man_capkhigioang.value = false;
-          screen1service.man_xakhigioang.value = false;
+          screen1service.man_capkhigioang1.value = false;
+          screen1service.man_xakhigioang1.value = false;
+          screen1service.man_capkhigioang2.value = false;
+          screen1service.man_xakhigioang2.value = false;
           screen1service.man_xadaynoihoi.value = false;
           screen1service.man_bomnuoc.value = false;
           screen1service.manual_mode.value = false;
@@ -160,14 +160,14 @@ class _VHbangtayWidgetState extends State<VHbangtayWidget> {
                             });
                           }),
 
-                          //van cấp khí gioăng
+                          //van cấp khí gioăng trước
                           manualButton(context,
                               btnName: languageText(context, 'man_mode_7'),
-                              active: screen1service.man_capkhigioang.value,
+                              active: screen1service.man_capkhigioang1.value,
                               function: () {
                             setState(() {
-                              screen1service.man_capkhigioang.value =
-                                  !screen1service.man_capkhigioang.value;
+                              screen1service.man_capkhigioang1.value =
+                                  !screen1service.man_capkhigioang1.value;
                             });
                           }),
                         ],
@@ -178,17 +178,47 @@ class _VHbangtayWidgetState extends State<VHbangtayWidget> {
                       height: 132 / sizeDevice,
                       child: Row(
                         children: [
-                          //van xả khí gioăng
+                          //van xả khí gioăng trước
                           manualButton(context,
                               btnName: languageText(context, 'man_mode_4'),
-                              active: screen1service.man_xakhigioang.value,
+                              active: screen1service.man_xakhigioang1.value,
                               function: () {
                             setState(() {
-                              screen1service.man_xakhigioang.value =
-                                  !screen1service.man_xakhigioang.value;
+                              screen1service.man_xakhigioang1.value =
+                                  !screen1service.man_xakhigioang1.value;
                             });
                           }),
 
+                          //cấp khi gioăng sau
+                          manualButton(context,
+                              btnName: languageText(context, 'man_mode_13'),
+                              active: screen1service.man_capkhigioang2.value,
+                              function: () {
+                            setState(() {
+                              screen1service.man_capkhigioang2.value =
+                                  !screen1service.man_capkhigioang2.value;
+                            });
+                          }),
+
+                          //xả khí gioăng sau
+                          manualButton(context,
+                              btnName: languageText(context, 'man_mode_12'),
+                              active: screen1service.man_xakhigioang2.value,
+                              function: () {
+                            setState(() {
+                              screen1service.man_xakhigioang2.value =
+                                  !screen1service.man_xakhigioang2.value;
+                            });
+                          }),
+                        ],
+                      ),
+                    ),
+
+                    //hàng 4
+                    Container(
+                      height: 132 / sizeDevice,
+                      child: Row(
+                        children: [
                           //van xả đáy nồi hơi
                           manualButton(context,
                               btnName: languageText(context, 'man_mode_10'),

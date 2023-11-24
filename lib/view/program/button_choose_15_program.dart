@@ -62,7 +62,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '01',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '01', '01', 126, 50, 5);
+                                  50.0, '01', '01', 115, 60, 6);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -75,7 +75,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '04',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '04', '04', 129, 46, 5);
+                                  50.0, '04', '04', 125, 21, 5);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -88,7 +88,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '07',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '07', '07', 132, 43, 7);
+                                  50.0, '07', '07', 132, 15, 5);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -101,7 +101,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '10',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '10', '10', 135, 40, 7);
+                                  50.0, '10', '10', 136, 4, 5);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -114,7 +114,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '13',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '13', '13', 138, 37, 7);
+                                  50.0, '13', '13', 134, 7, 15);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -150,7 +150,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '02',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '02', '02', 127, 48, 5);
+                                  50.0, '02', '02', 118, 40, 6);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -163,7 +163,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '05',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '05', '05', 130, 45, 5);
+                                  50.0, '05', '05', 127, 18, 5);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -176,7 +176,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '08',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '08', '08', 133, 42, 7);
+                                  50.0, '08', '08', 134, 10, 5);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -189,7 +189,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '11',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '11', '11', 136, 39, 7);
+                                  50.0, '11', '11', 121, 20, 15);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -202,7 +202,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '14',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '14', '14', 139, 36, 7);
+                                  50.0, '14', '14', 128, 30, 7);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -238,7 +238,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '03',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '03', '03', 128, 47, 5);
+                                  50.0, '03', '03', 121, 30, 6);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -251,7 +251,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '06',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '06', '06', 131, 44, 5);
+                                  50.0, '06', '06', 130, 16, 5);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -264,7 +264,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '09',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '09', '09', 134, 41, 7);
+                                  50.0, '09', '09', 134, 18, 20);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -277,7 +277,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '12',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '12', '12', 137, 38, 7);
+                                  50.0, '12', '12', 135, 8, 7);
                               await programService.writeDataProgram();
                             },
                           ),
@@ -290,7 +290,7 @@ class _ButtonChoose15ProgramState extends State<ButtonChoose15Program> {
                                 '15',
                             function: () async {
                               await programService.parameter_program(
-                                  50.0, '15', '15', 140, 35, 7);
+                                  50.0, '15', '15', 134, 4, 5);
                               await programService.writeDataProgram();
                             },
                           ),

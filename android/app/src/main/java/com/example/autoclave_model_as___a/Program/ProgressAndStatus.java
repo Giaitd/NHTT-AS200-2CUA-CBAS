@@ -1,14 +1,8 @@
-package com.example.autoclave_model_a.Program;
+package com.example.autoclave_model_as___a.Program;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Handler;
 
-import androidx.annotation.RequiresApi;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.TimerTask;
 
 import io.flutter.Log;
@@ -27,7 +21,13 @@ public class ProgressAndStatus {
                     @Override
                     public void run() {
 
-                        Log.d("pressSet==== ", String.valueOf(Globals.pressSet));
+//                        Log.d("pressSet==== ", String.valueOf(Globals.pressSet));
+
+                        //trạng thái cửa
+                        if(Globals.dIData.i0[5] && Globals.dIData.i0[6]) Globals.door = 3;  //2 cửa đều đóng
+                        if(Globals.dIData.i0[5] && !Globals.dIData.i0[6]) Globals.door = 1; //cửa trước đóng, sau mở
+                        if(!Globals.dIData.i0[5] && Globals.dIData.i0[6]) Globals.door = 2; //cửa trước mở, sau đóng
+                        if(!Globals.dIData.i0[5] && !Globals.dIData.i0[6]) Globals.door = 0; //cửa trước đóng, sau mở
 
                         //lỗi nhiệt độ buồng hấp quá cao
                         if ((Globals.temperature > 145 || (Globals.status == 1 && Globals.temperature > (Globals.tempSet + 5))) && !Globals.err7) {

@@ -349,46 +349,17 @@ class _MainScreenState extends State<MainScreen> {
                             child: Container(
                               height: 125 / sizeDevice,
                               width: 190 / sizeDevice,
-                              child: screen1service.i0[5]
-                                  ? Image.asset("assets/images/door_close.png")
-                                  : Image.asset("assets/images/door_open.png"),
+                              child: screen1service.door_status.value == 0
+                                  ? Image.asset("assets/images/door_open.png")
+                                  : screen1service.door_status.value == 1
+                                      ? Image.asset(
+                                          "assets/images/door_close_open.png")
+                                      : screen1service.door_status.value == 2
+                                          ? Image.asset(
+                                              "assets/images/door_open_close.png")
+                                          : Image.asset(
+                                              "assets/images/door_close.png"),
                             ),
-                          ),
-
-                          //trạng thái cửa
-                          Positioned(
-                            left: 511 / sizeDevice,
-                            child: Container(
-                                alignment: Alignment.center,
-                                height: 125 / sizeDevice,
-                                width: 120 / sizeDevice,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      languageText(context, 'door_1'),
-                                      style: FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Roboto Mono',
-                                            color: Colors.black,
-                                            fontSize: 20 / sizeDevice,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                    Text(
-                                      languageText(context, 'door_2'),
-                                      style: FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Roboto Mono',
-                                            color: Colors.black,
-                                            fontSize: 20 / sizeDevice,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ],
-                                )),
                           ),
 
                           //start/stop button

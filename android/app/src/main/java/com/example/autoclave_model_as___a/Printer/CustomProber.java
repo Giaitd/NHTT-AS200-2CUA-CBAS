@@ -1,4 +1,4 @@
-package com.example.autoclave_model_a.Printer;
+package com.example.autoclave_model_as___a.Printer;
 
 import com.hoho.android.usbserial.driver.CdcAcmSerialDriver;
 import com.hoho.android.usbserial.driver.ProbeTable;

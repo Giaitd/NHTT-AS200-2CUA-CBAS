@@ -1,8 +1,8 @@
-package com.example.autoclave_model_a.Thread;
+package com.example.autoclave_model_as___a.Thread;
 
 import android.os.Handler;
 import android.util.Log;
-import com.example.autoclave_model_a.Program.Globals;
+import com.example.autoclave_model_as___a.Program.Globals;
 
 public class SteamToChamberFault implements Runnable{
     Handler updateData3;

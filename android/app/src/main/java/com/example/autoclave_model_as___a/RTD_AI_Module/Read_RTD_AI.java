@@ -1,12 +1,10 @@
-package com.example.autoclave_model_a.RTD_AI_Module;
+package com.example.autoclave_model_as___a.RTD_AI_Module;
 
 import android.content.Context;
 import android.os.Handler;
-import android.util.Log;
 
-import com.example.autoclave_model_a.Program.Globals;
+import com.example.autoclave_model_as___a.Program.Globals;
 
-import java.io.Console;
 import java.util.List;
 import java.util.TimerTask;
 

@@ -1,12 +1,10 @@
-package com.example.autoclave_model_a.Program;
+package com.example.autoclave_model_as___a.Program;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.example.autoclave_model_a.DIDOModule.SetDO;
-import com.example.autoclave_model_a.Thread.FunctionThread;
-
-import java.util.Set;
+import com.example.autoclave_model_as___a.DIDOModule.SetDO;
+import com.example.autoclave_model_as___a.Thread.FunctionThread;
 
 public class SteamBoiler {
     public static void boilerControll(Context context) {

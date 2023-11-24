@@ -1,4 +1,4 @@
-package com.example.autoclave_model_a;//package com.example.autoclave_model_a;
+package com.example.autoclave_model_as___a;//package com.example.autoclave_model_a;
 //
 //import io.flutter.embedding.android.FlutterActivity;
 //
@@ -11,12 +11,12 @@ import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugin.common.MethodChannel;
 
-import com.example.autoclave_model_a.DIDOModule.ReadDIDO;
-import com.example.autoclave_model_a.Printer.Printer;
-import com.example.autoclave_model_a.Program.ControlOutput;
-import com.example.autoclave_model_a.Program.Globals;
-import com.example.autoclave_model_a.Program.ProgressAndStatus;
-import com.example.autoclave_model_a.RTD_AI_Module.Read_RTD_AI;
+import com.example.autoclave_model_as___a.DIDOModule.ReadDIDO;
+import com.example.autoclave_model_as___a.Printer.Printer;
+import com.example.autoclave_model_as___a.Program.ControlOutput;
+import com.example.autoclave_model_as___a.Program.Globals;
+import com.example.autoclave_model_as___a.Program.ProgressAndStatus;
+import com.example.autoclave_model_as___a.RTD_AI_Module.Read_RTD_AI;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -88,8 +88,10 @@ public class MainActivity extends FlutterActivity {
                         Globals.manVacuum = (boolean) arg.get("manVacuum");
                         Globals.manBalance = (boolean) arg.get("manBalanced");
                         Globals.manWaterCool = (boolean) arg.get("manWaterCool");
-                        Globals.manAirGasgetIn = (boolean) arg.get("manAirGasgetIn");
-                        Globals.manAirGasgetOut = (boolean) arg.get("manAirGasgetOut");
+                        Globals.manAirGasket1In = (boolean) arg.get("manAirGasket1In");
+                        Globals.manAirGasket1Out = (boolean) arg.get("manAirGasket1Out");
+                        Globals.manAirGasket2In = (boolean) arg.get("manAirGasket2In");
+                        Globals.manAirGasket2Out = (boolean) arg.get("manAirGasket2Out");
                         Globals.manWaterOutBoiler = (boolean) arg.get("manBoilerExhaust");
                         Globals.manPump = (boolean) arg.get("manPump");
 
@@ -107,6 +109,7 @@ public class MainActivity extends FlutterActivity {
                         arg2.put("q0", Globals.dOData.valueQ0);
                         arg2.put("q1", Globals.dOData.valueQ1);
                         arg2.put("i0", Globals.dIData.valueI0);
+                        arg2.put("door",Globals.door);
 
                         result.success(arg2);
                     } else if (call.method.equals("resetButton")) {

@@ -42,6 +42,7 @@ class Screen1Service extends GetxService {
   RxBool reachTAndP = false.obs;
 
   //trạng thái cửa
+  RxInt door_status = 0.obs;
   RxBool allowStart = false.obs;
 
   //T
@@ -77,10 +78,12 @@ class Screen1Service extends GetxService {
   RxBool man_hck = false.obs;
   RxBool man_cba = false.obs;
   RxBool man_capnuocmat = false.obs;
-  RxBool man_capkhigioang = false.obs;
-  RxBool man_xakhigioang = false.obs;
-  RxBool man_bomnuoc = false.obs;
+  RxBool man_capkhigioang1 = false.obs;
+  RxBool man_xakhigioang1 = false.obs;
+  RxBool man_capkhigioang2 = false.obs;
+  RxBool man_xakhigioang2 = false.obs;
   RxBool man_xadaynoihoi = false.obs;
+  RxBool man_bomnuoc = false.obs;
   RxBool manual_mode = false.obs;
   RxBool btnReset = true.obs;
 
@@ -292,6 +295,7 @@ class Screen1Service extends GetxService {
       number2.value = getDataValues['getSecCount'];
       complete_number_1.value = getDataValues['getCompleteNumber'];
       allowStart.value = getDataValues['allowStart'];
+      door_status.value = getDataValues['door'];
 
       dataQ0.value = getDataValues['q0'];
       dataQ1.value = getDataValues['q1'];

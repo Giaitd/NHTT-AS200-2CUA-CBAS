@@ -1,4 +1,4 @@
-package com.example.autoclave_model_a.Program;
+package com.example.autoclave_model_as___a.Program;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,10 +8,9 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.example.autoclave_model_a.DIDOModule.SetDO;
-import com.example.autoclave_model_a.Thread.FunctionThread;
+import com.example.autoclave_model_as___a.DIDOModule.SetDO;
+import com.example.autoclave_model_as___a.Thread.FunctionThread;
 
-import java.util.Set;
 import java.util.TimerTask;
 
 public class ControlOutput extends android.app.Service {
@@ -29,8 +28,8 @@ public class ControlOutput extends android.app.Service {
                 mTimerHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        //not start program when door open and water out of boiler on
-                        if (Globals.dIData.i0[5] && !Globals.dIData.i0[6]) {
+                        //Chỉ ấn chạy được khi 2 cửa đều đóng
+                        if (Globals.dIData.i0[5] && Globals.dIData.i0[6]) {
                             Globals.allowStart = true;
                         } else {
                             Globals.allowStart = false;
@@ -39,17 +38,17 @@ public class ControlOutput extends android.app.Service {
                         ManualMode.manMode(context);
 
                         if (!Globals.manualMode) {
-                            //van xa day
-                            if (Globals.dIData.i0[6]) {
-                                SetDO.waterBoilerOutOn(context);
-                                Globals.statusDetail = "Đang xả đáy nồi hơi";
-                                Globals.statusDetailNumber = 7;
-                                if (Globals.runStop == 1 && !Globals.err6) {
-                                    Globals.errorStatus = true;
-                                    Globals.listError.add("   " + Globals.timeOfDay + "     " + Globals.day + "     Ấn xả đáy nồi hơi khi đang chạy");
-                                    Globals.err6 = true;
-                                }
-                            } else SetDO.waterBoilerOutOff(context);
+//                            //van xa day
+//                            if (Globals.dIData.i0[6]) {
+//                                SetDO.waterBoilerOutOn(context);
+//                                Globals.statusDetail = "Đang xả đáy nồi hơi";
+//                                Globals.statusDetailNumber = 7;
+//                                if (Globals.runStop == 1 && !Globals.err6) {
+//                                    Globals.errorStatus = true;
+//                                    Globals.listError.add("   " + Globals.timeOfDay + "     " + Globals.day + "     Ấn xả đáy nồi hơi khi đang chạy");
+//                                    Globals.err6 = true;
+//                                }
+//                            } else SetDO.waterBoilerOutOff(context);
 
                             //dot sinh hoi
                             SteamBoiler.boilerControll(context);
@@ -58,6 +57,10 @@ public class ControlOutput extends android.app.Service {
 
                                 //chua an start
                                 case 0:
+                                    // cho phép ấn xả đáy (Q12 = 1)
+                                    SetDO.enableBoilerExhaustOn(context);
+
+
                                     //tự động xả nhanh khi áp suất buồng hấp > 0.12. <0.06 thì dừng
                                     if (Globals.pressure > 0.12) {
                                         SetDO.fastExhaustOn(context);
@@ -66,9 +69,13 @@ public class ControlOutput extends android.app.Service {
                                     }
 
                                     //tắt vam xả khi gioăng, cấp khí gioăng
-                                    if (Globals.pressure > 0.15) {
-                                        SetDO.airToGasketOn(context);
-                                    } else SetDO.airToGasketOff(context);
+                                    if (Globals.pressure > 0.15 && Globals.dIData.i0[5] && Globals.dIData.i0[6]) {
+                                        SetDO.airToGasket1On(context);
+                                        SetDO.airToGasket2On(context);
+                                    } else {
+                                        SetDO.airToGasket1Off(context);
+                                        SetDO.airToGasket2Off(context);
+                                    }
                                     SetDO.vacuumOff(context);
                                     SetDO.steamToChamberOff(context);
                                     SetDO.balanceOff(context);
@@ -77,6 +84,7 @@ public class ControlOutput extends android.app.Service {
                                     //reset thread
                                     FunctionThread.steamToChamberThreadOff();
                                     FunctionThread.fastExhaustThreadOff();
+                                    FunctionThread.vacuumThreadOff();
 
 
                                     //reset fault and data
@@ -110,6 +118,9 @@ public class ControlOutput extends android.app.Service {
 
                                 //da an start
                                 case 1:
+                                    // không cho phép ấn xả đáy (Q12 = 0)
+                                    SetDO.enableBoilerExhaustOff(context);
+
                                     //open slowExhaust when vacuum not active
                                     if (!Globals.dOData.q0[0]) {
                                         SetDO.slowExhaustOn(context);
@@ -132,7 +143,7 @@ public class ControlOutput extends android.app.Service {
 
                                         case 1:  //air removal state
                                             //cấp khí gioăng
-                                            SetDO.airToGasketOn(context);
+                                            SetDO.airToGasket1On(context);
 
                                             if (Globals.steamBoilerOk) {
                                                 //indicate time countdown
@@ -182,7 +193,7 @@ public class ControlOutput extends android.app.Service {
 
                                         case 2: //sterilization state
                                             //cấp khí gioăng
-                                            SetDO.airToGasketOn(context);
+                                            SetDO.airToGasket1On(context);
 
                                             Globals.minCount = Globals.countTimeSterilization / 60;
                                             Globals.secCount = Globals.countTimeSterilization % 60;
@@ -229,8 +240,8 @@ public class ControlOutput extends android.app.Service {
                                             if (Globals.pressure <= 0.1) {
                                                 //countdown time????????????????????
                                                 if (Globals.countTimeDry > 0) {
-                                                    SetDO.airToGasketOff(context);
-                                                    SetDO.airOutGasketOn(context);
+                                                    SetDO.airToGasket1Off(context);
+                                                    SetDO.airOutGasket1On(context);
                                                     SetDO.vacuumOn(context);
                                                     Globals.countTimeDry--;
                                                     Log.d("Time dry === ", String.valueOf(Globals.countTimeDry));
@@ -242,7 +253,7 @@ public class ControlOutput extends android.app.Service {
 
                                         case 4:
                                             //xả khí gioăng - off
-                                            SetDO.airOutGasketOff(context);
+                                            SetDO.airOutGasket1Off(context);
 
                                             if (Globals.dOData.q0[0]) {
                                                 SetDO.vacuumOff(context);

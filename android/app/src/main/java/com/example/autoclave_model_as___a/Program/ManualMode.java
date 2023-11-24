@@ -1,8 +1,8 @@
-package com.example.autoclave_model_a.Program;
+package com.example.autoclave_model_as___a.Program;
 
 import android.content.Context;
 
-import com.example.autoclave_model_a.DIDOModule.SetDO;
+import com.example.autoclave_model_as___a.DIDOModule.SetDO;
 
 public class ManualMode {
     public static void manMode(Context context){
@@ -43,18 +43,32 @@ public class ManualMode {
                 SetDO.waterBoilerOutOff(context);
             }
 
-            //cap khi gioang
-            if (Globals.manAirGasgetIn) {
-                SetDO.airToGasketOn(context);
+            //cap khi gioang 1
+            if (Globals.manAirGasket1In) {
+                SetDO.airToGasket1On(context);
             } else {
-                SetDO.airToGasketOff(context);
+                SetDO.airToGasket1Off(context);
             }
 
-            //xa khi gioang
-            if (Globals.manAirGasgetOut) {
-                SetDO.airOutGasketOn(context);
+            //xa khi gioang 1
+            if (Globals.manAirGasket1Out) {
+                SetDO.airOutGasket1On(context);
             } else {
-                SetDO.airOutGasketOff(context);
+                SetDO.airOutGasket1Off(context);
+            }
+
+            //cap khi gioang 2
+            if (Globals.manAirGasket2In) {
+                SetDO.airToGasket2On(context);
+            } else {
+                SetDO.airToGasket2Off(context);
+            }
+
+            //xa khi gioang 2
+            if (Globals.manAirGasket2Out) {
+                SetDO.airOutGasket2On(context);
+            } else {
+                SetDO.airOutGasket2Off(context);
             }
 
             //cba
@@ -78,8 +92,10 @@ public class ManualMode {
                 SetDO.vacuumOff(context);
                 SetDO.slowExhaustOff(context);
                 SetDO.fastExhaustOff(context);
-                SetDO.airOutGasketOff(context);
-                SetDO.airToGasketOff(context);
+                SetDO.airOutGasket1Off(context);
+                SetDO.airToGasket1Off(context);
+                SetDO.airOutGasket2Off(context);
+                SetDO.airToGasket2Off(context);
                 SetDO.balanceOff(context);
                 SetDO.waterPumpOff(context);
                 SetDO.waterBoilerOutOff(context);

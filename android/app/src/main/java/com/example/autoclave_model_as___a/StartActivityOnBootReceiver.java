@@ -1,4 +1,4 @@
-package com.example.autoclave_model_a;
+package com.example.autoclave_model_as___a;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

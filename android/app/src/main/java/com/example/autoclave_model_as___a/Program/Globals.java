@@ -1,9 +1,9 @@
-package com.example.autoclave_model_a.Program;
+package com.example.autoclave_model_as___a.Program;
 
-import com.example.autoclave_model_a.DIDOModule.DIData;
-import com.example.autoclave_model_a.DIDOModule.DOData;
-import com.example.autoclave_model_a.RTD_AI_Module.AIData;
-import com.example.autoclave_model_a.RTD_AI_Module.RTDData;
+import com.example.autoclave_model_as___a.DIDOModule.DIData;
+import com.example.autoclave_model_as___a.DIDOModule.DOData;
+import com.example.autoclave_model_as___a.RTD_AI_Module.AIData;
+import com.example.autoclave_model_as___a.RTD_AI_Module.RTDData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,9 @@ import java.util.TimerTask;
 
 public class Globals {
 
-
     public static DIData dIData = null;
     public static DOData dOData = null;
     public static byte[] bufferAll = null;
-
-
 
     public static RTDData tempData = null;
     public static AIData pressData = null;
@@ -35,8 +32,10 @@ public class Globals {
     public static boolean manVacuum;
     public static boolean manBalance;
     public static boolean manWaterOutBoiler;
-    public static boolean manAirGasgetIn;
-    public static boolean manAirGasgetOut;
+    public static boolean manAirGasket1In;
+    public static boolean manAirGasket1Out;
+    public static boolean manAirGasket2In;
+    public static boolean manAirGasket2Out;
     public static boolean manWaterCool;
     public static boolean manPump;
 
@@ -51,7 +50,7 @@ public class Globals {
 
     //program value set
     public static String program = "0";
-    public static Double tempSet =121.0;
+    public static Double tempSet = 121.0;
     public static Double sterTimeSet = 5.0;
     public static Integer dryTimeSet = 2;
     public static Double pressSet = 2.06;
@@ -89,10 +88,8 @@ public class Globals {
     public static boolean checkCountNumber;
     public static int countTimeSterilization = 10;
     public static int countTimeDry;
-//    public static int countTimerBalance;
+    //    public static int countTimerBalance;
     public static int timeExhaustSet;
-
-
 
 
     //state of program
@@ -105,7 +102,7 @@ public class Globals {
     public static boolean enableSteamToChamber;
 
 
-//    public static boolean fullWater;
+    //    public static boolean fullWater;
 //    public static boolean exhaustVacuum;
     public static boolean manualMode;
     public static boolean enableManualMode;
@@ -113,6 +110,9 @@ public class Globals {
 
     //number of completed
     public static int numberCompleted = 0;
+
+    //door
+    public static int door = 0;
 
     //List String data printer
     public static List<String> listDataPrinter = new ArrayList<>();
@@ -124,7 +124,7 @@ public class Globals {
     //List of counter time
     public static int counterBoiler;
     public static int counterVacuum;
-//    public static int counterWaterIn;
+    //    public static int counterWaterIn;
     public static int counterSteamToChamber;
     public static int counterFastExhaust;
 
@@ -144,8 +144,7 @@ public class Globals {
 
     //I0/I1: Bao can duong cap nuoc HCK / noi hoi
     //I2/I3/I4: Bao can noi hoi muc thap/giua/cao
-    //I5: cam bien cua
-    //I6: xa day
+    //I5/I6: cam bien cua 1/2
     //I7: dong ho dieu ap noi hoi
 
     public static List<String> listError = new ArrayList<>();

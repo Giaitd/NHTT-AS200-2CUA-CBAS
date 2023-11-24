@@ -1,9 +1,8 @@
-package com.example.autoclave_model_a.DIDOModule;
+package com.example.autoclave_model_as___a.DIDOModule;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.example.autoclave_model_a.Program.Globals;
+import com.example.autoclave_model_as___a.Program.Globals;
 
 import java.util.List;
 
@@ -26,13 +25,13 @@ public class SetDO {
     public static byte[] Q04On = {2, 5, 0, 4, -1, 0, -51, -56};   //van xa day noi hoi
     public static byte[] Q04Off = {2, 5, 0, 4, 0, 0, -116, 56};
 
-    public static byte[] Q05On = {2, 5, 0, 5, -1, 0, -100, 8};  //van cap khi gioang
+    public static byte[] Q05On = {2, 5, 0, 5, -1, 0, -100, 8};  //van cap khi gioang 1
     public static byte[] Q05Off = {2, 5, 0, 5, 0, 0, -35, -8};
 
     public static byte[] Q06On = {2, 5, 0, 6, -1, 0, 108, 8};   //thanh dot
     public static byte[] Q06Off = {2, 5, 0, 6, 0, 0, 45, -8};
 
-    public static byte[] Q07On = {2, 5, 0, 7, -1, 0, 61, -56}; //van xa khi gioang
+    public static byte[] Q07On = {2, 5, 0, 7, -1, 0, 61, -56}; //van xa khi gioang 1
     public static byte[] Q07Off = {2, 5, 0, 7, 0, 0, 124, 56};
 
     public static byte[] Q08On = {2, 5, 0, 8, -1, 0, 13, -53};     //bom nuoc noi hoi
@@ -41,13 +40,13 @@ public class SetDO {
     public static byte[] Q09On = {2, 5, 0, 9, -1, 0, 92, 11};      //van can bang ap
     public static byte[] Q09Off = {2, 5, 0, 9, 0, 0, 29, -5};
 
-    public static byte[] Q10On = {2, 5, 0, 10, -1, 0, -84, 11};
+    public static byte[] Q10On = {2, 5, 0, 10, -1, 0, -84, 11};  //van cấp khí gioăng 2
     public static byte[] Q10Off = {2, 5, 0, 10, 0, 0, -19, -5};
 
-    public static byte[] Q11On = {2, 5, 0, 11, -1, 0, -3, -53};
+    public static byte[] Q11On = {2, 5, 0, 11, -1, 0, -3, -53};     //van xả khí gioăng 2
     public static byte[] Q11Off = {2, 5, 0, 11, 0, 0, -68, 59};
 
-    public static byte[] Q12On = {2, 5, 0, 12, -1, 0, 76, 10};
+    public static byte[] Q12On = {2, 5, 0, 12, -1, 0, 76, 10};      //enable xả đáy nồi hơi
     public static byte[] Q12Off = {2, 5, 0, 12, 0, 0, 13, -6};
 
     public static byte[] Q13On = {2, 5, 0, 13, -1, 0, 29, -54};
@@ -154,15 +153,15 @@ public class SetDO {
         }
     }
 
-    //air to gasket on/off
-    public static void airToGasketOn(Context context) {
+    //air to gasket 1 on/off
+    public static void airToGasket1On(Context context) {
         if (!Globals.dOData.q0[5]) {
             Globals.bufferAll = Q05On;
             writeDO(context);
         }
     }
 
-    public static void airToGasketOff(Context context) {
+    public static void airToGasket1Off(Context context) {
         if (Globals.dOData.q0[5]) {
             Globals.bufferAll = Q05Off;
             writeDO(context);
@@ -184,18 +183,17 @@ public class SetDO {
         }
     }
 
-    //air out gasket on/off
-    public static void airOutGasketOn(Context context) {
+    //air out gasket 1 on/off
+    public static void airOutGasket1On(Context context) {
         if (!Globals.dOData.q0[7]) {
             Globals.bufferAll = Q07On;
             writeDO(context);
         }
     }
 
-    public static void airOutGasketOff(Context context) {
+    public static void airOutGasket1Off(Context context) {
 
         if (Globals.dOData.q0[7]) {
-//            Log.d("data====q07", String.valueOf(Globals.dOData.q0[7]));
             Globals.bufferAll = Q07Off;
             writeDO(context);
         }
@@ -210,7 +208,6 @@ public class SetDO {
     }
 
     public static void waterPumpOff(Context context) {
-//        Log.d("data====q10", String.valueOf(Globals.dOData.q1[0]));
         if (Globals.dOData.q1[0]) {
             Globals.bufferAll = Q08Off;
             writeDO(context);
@@ -227,9 +224,55 @@ public class SetDO {
     }
 
     public static void balanceOff(Context context) {
-//        Log.d("data====q11", String.valueOf(Globals.dOData.q1[1]));
         if (Globals.dOData.q1[1]) {
             Globals.bufferAll = Q09Off;
+            writeDO(context);
+        }
+    }
+
+    //air to gasket 2 on/off
+    public static void airToGasket2On(Context context) {
+        if (!Globals.dOData.q1[2]) {
+            Globals.bufferAll = Q10On;
+            writeDO(context);
+        }
+    }
+
+    public static void airToGasket2Off(Context context) {
+        if (Globals.dOData.q1[2]) {
+            Globals.bufferAll = Q10Off;
+            writeDO(context);
+        }
+    }
+
+    //air out gasket 2 on/off
+    public static void airOutGasket2On(Context context) {
+        if (!Globals.dOData.q1[3]) {
+            Globals.bufferAll = Q11On;
+            writeDO(context);
+        }
+    }
+
+    public static void airOutGasket2Off(Context context) {
+
+        if (Globals.dOData.q1[3]) {
+            Globals.bufferAll = Q11Off;
+            writeDO(context);
+        }
+    }
+
+    //enable boiler exhaust
+    public static void enableBoilerExhaustOn(Context context) {
+        if (!Globals.dOData.q1[4]) {
+            Globals.bufferAll = Q12On;
+            writeDO(context);
+        }
+    }
+
+    public static void enableBoilerExhaustOff(Context context) {
+
+        if (Globals.dOData.q1[4]) {
+            Globals.bufferAll = Q12Off;
             writeDO(context);
         }
     }

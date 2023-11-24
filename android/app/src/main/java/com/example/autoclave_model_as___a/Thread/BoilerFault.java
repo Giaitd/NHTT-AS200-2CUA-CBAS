@@ -1,13 +1,9 @@
-package com.example.autoclave_model_a.Thread;
+package com.example.autoclave_model_as___a.Thread;
 
 import android.os.Handler;
 import android.util.Log;
 
-import com.example.autoclave_model_a.Program.Globals;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.example.autoclave_model_as___a.Program.Globals;
 
 public class BoilerFault implements Runnable{
     Handler updateData1;
