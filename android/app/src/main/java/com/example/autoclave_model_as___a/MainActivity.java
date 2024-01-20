@@ -16,7 +16,8 @@ import com.example.autoclave_model_as___a.Printer.Printer;
 import com.example.autoclave_model_as___a.Program.ControlOutput;
 import com.example.autoclave_model_as___a.Program.Globals;
 import com.example.autoclave_model_as___a.Program.ProgressAndStatus;
-import com.example.autoclave_model_as___a.RTD_AI_Module.Read_RTD_AI;
+import com.example.autoclave_model_as___a.RTD_AI_Module.Read_AI;
+import com.example.autoclave_model_as___a.RTD_AI_Module.Read_RTD;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,9 +28,9 @@ public class MainActivity extends FlutterActivity {
 
     Timer timerControlOutput = new Timer();
     Timer timerProgressStatus = new Timer();
-    Timer timerGetRTD_AI = new Timer();
+    Timer timerGetRTD = new Timer();
+    Timer timerGetAI = new Timer();
     Timer timerGetDIDO = new Timer();
-    Timer timerPrinter = new Timer();
     Timer timerDataPrinter = new Timer();
     Timer timerGetRealTempForPrinter = new Timer();
 
@@ -38,13 +39,13 @@ public class MainActivity extends FlutterActivity {
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         super.configureFlutterEngine(flutterEngine);
 
-         timerGetRTD_AI.schedule(Read_RTD_AI.getRTDTask(getApplicationContext()), 0, 1000);
-         timerGetDIDO.schedule(ReadDIDO.getDIDOTask(getApplicationContext()), 50, 1000);
-         timerProgressStatus.schedule(ProgressAndStatus.progressStatusTask(getApplicationContext()), 100, 1000);
-         timerControlOutput.schedule(ControlOutput.controlOutputTask(getApplicationContext()), 150, 1000);
-         timerDataPrinter.schedule(Printer.dataPrinter(getApplicationContext()), 200, 1000);
-         timerPrinter.schedule(Printer.connectPrinter(getApplicationContext()), 250, 1000);
-         timerGetRealTempForPrinter.schedule(Printer.getRealTempForPrinterTask(getApplicationContext()), 300, Globals.cyclePrinter * 1000L);
+           timerGetRTD.schedule(Read_RTD.getRTDTask(getApplicationContext()), 0, 1300);
+           timerGetAI.schedule(Read_AI.getAITask(getApplicationContext()),70,1300);
+           timerGetDIDO.schedule(ReadDIDO.getDIDOTask(getApplicationContext()), 150, 1300);
+           timerProgressStatus.schedule(ProgressAndStatus.progressStatusTask(getApplicationContext()), 300, 1000);
+           timerControlOutput.schedule(ControlOutput.controlOutputTask(getApplicationContext()), 400, 1000);
+           timerDataPrinter.schedule(Printer.dataPrinter(getApplicationContext()), 500, 1000);
+           timerGetRealTempForPrinter.schedule(Printer.getRealTempForPrinterTask(getApplicationContext()), 600, Globals.cyclePrinter * 1000L);
 
 
         new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
@@ -93,6 +94,7 @@ public class MainActivity extends FlutterActivity {
                         Globals.manAirGasket2In = (boolean) arg.get("manAirGasket2In");
                         Globals.manAirGasket2Out = (boolean) arg.get("manAirGasket2Out");
                         Globals.manWaterOutBoiler = (boolean) arg.get("manBoilerExhaust");
+                        Globals.manCompressorExhaust = (boolean) arg.get("manCompressorExhaust");
                         Globals.manPump = (boolean) arg.get("manPump");
 
 

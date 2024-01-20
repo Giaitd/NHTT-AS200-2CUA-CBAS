@@ -47,148 +47,148 @@ class _CaidatchuyensauWidgetState extends State<CaidatchuyensauWidget> {
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
                   children: [
-                    //trạng thái I-O
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16 / sizeDevice, 0, 16 / sizeDevice, 8 / sizeDevice),
-                      child: InkWell(
-                        onTap: () async {
-                          toPage(context, TrangThaiIOWidget());
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          height: 150 / sizeDevice,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 3,
-                                color: Color(0x411D2429),
-                                offset: Offset(0, 1),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(8 / sizeDevice),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8 / sizeDevice,
-                                8 / sizeDevice,
-                                8 / sizeDevice,
-                                8 / sizeDevice),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(6),
-                                  child: Image.asset(
-                                    'assets/images/onoff.png',
-                                    width: 80 / sizeDevice,
-                                    height: 80 / sizeDevice,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8 / sizeDevice,
-                                        8 / sizeDevice,
-                                        4 / sizeDevice,
-                                        0),
-                                    child: Text(
-                                      // trạng thái thiết bị,
-                                      languageText(
-                                          context, 'advanced_setup_13'),
-                                      style: FlutterFlowTheme.of(context)
-                                          .title3
-                                          .override(
-                                            fontFamily: 'Roboto Mono',
-                                            color: Color(0xFF0F1113),
-                                            fontSize: 24 / sizeDevice,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // //trạng thái I-O
+                    // Padding(
+                    //   padding: EdgeInsetsDirectional.fromSTEB(
+                    //       16 / sizeDevice, 0, 16 / sizeDevice, 8 / sizeDevice),
+                    //   child: InkWell(
+                    //     onTap: () async {
+                    //       toPage(context, TrangThaiIOWidget());
+                    //     },
+                    //     child: Container(
+                    //       width: double.infinity,
+                    //       height: 150 / sizeDevice,
+                    //       decoration: BoxDecoration(
+                    //         color: Colors.white,
+                    //         boxShadow: [
+                    //           BoxShadow(
+                    //             blurRadius: 3,
+                    //             color: Color(0x411D2429),
+                    //             offset: Offset(0, 1),
+                    //           )
+                    //         ],
+                    //         borderRadius: BorderRadius.circular(8 / sizeDevice),
+                    //       ),
+                    //       child: Padding(
+                    //         padding: EdgeInsetsDirectional.fromSTEB(
+                    //             8 / sizeDevice,
+                    //             8 / sizeDevice,
+                    //             8 / sizeDevice,
+                    //             8 / sizeDevice),
+                    //         child: Row(
+                    //           mainAxisSize: MainAxisSize.max,
+                    //           children: [
+                    //             ClipRRect(
+                    //               borderRadius: BorderRadius.circular(6),
+                    //               child: Image.asset(
+                    //                 'assets/images/onoff.png',
+                    //                 width: 80 / sizeDevice,
+                    //                 height: 80 / sizeDevice,
+                    //                 fit: BoxFit.cover,
+                    //               ),
+                    //             ),
+                    //             Expanded(
+                    //               child: Padding(
+                    //                 padding: EdgeInsetsDirectional.fromSTEB(
+                    //                     8 / sizeDevice,
+                    //                     8 / sizeDevice,
+                    //                     4 / sizeDevice,
+                    //                     0),
+                    //                 child: Text(
+                    //                   // trạng thái thiết bị,
+                    //                   languageText(
+                    //                       context, 'advanced_setup_13'),
+                    //                   style: FlutterFlowTheme.of(context)
+                    //                       .title3
+                    //                       .override(
+                    //                         fontFamily: 'Roboto Mono',
+                    //                         color: Color(0xFF0F1113),
+                    //                         fontSize: 24 / sizeDevice,
+                    //                         fontWeight: FontWeight.w500,
+                    //                       ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
 
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16 / sizeDevice, 0, 16 / sizeDevice, 8 / sizeDevice),
-                      child: InkWell(
-                        onTap: () async {
-                          if (screen1service.startStop == true) {
-                          } else {
-                            setState(() {
-                              screen1service.manual_mode.value = true;
-                            });
-                            toPage(context, VHbangtayWidget());
-                          }
-                        },
-                        //vận hành tay
-                        child: Container(
-                          width: double.infinity,
-                          height: 150 / sizeDevice,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 3,
-                                color: Color(0x411D2429),
-                                offset: Offset(0, 1),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(8 / sizeDevice),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8 / sizeDevice,
-                                8 / sizeDevice,
-                                8 / sizeDevice,
-                                8 / sizeDevice),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(6),
-                                  child: Image.asset(
-                                    'assets/images/manual_mode_icon.png',
-                                    width: 80 / sizeDevice,
-                                    height: 80 / sizeDevice,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8 / sizeDevice,
-                                        8 / sizeDevice,
-                                        4 / sizeDevice,
-                                        0),
-                                    child: Text(
-                                      // 'Vận hành bằng tay',
-                                      languageText(context, 'advanced_setup_0'),
-                                      style: FlutterFlowTheme.of(context)
-                                          .title3
-                                          .override(
-                                            fontFamily: 'Roboto Mono',
-                                            color: Color(0xFF0F1113),
-                                            fontSize: 24 / sizeDevice,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsetsDirectional.fromSTEB(
+                    //       16 / sizeDevice, 0, 16 / sizeDevice, 8 / sizeDevice),
+                    //   child: InkWell(
+                    //     onTap: () async {
+                    //       if (screen1service.startStop == true) {
+                    //       } else {
+                    //         setState(() {
+                    //           screen1service.manual_mode.value = true;
+                    //         });
+                    //         toPage(context, VHbangtayWidget());
+                    //       }
+                    //     },
+                    //     //vận hành tay
+                    //     child: Container(
+                    //       width: double.infinity,
+                    //       height: 150 / sizeDevice,
+                    //       decoration: BoxDecoration(
+                    //         color: Colors.white,
+                    //         boxShadow: [
+                    //           BoxShadow(
+                    //             blurRadius: 3,
+                    //             color: Color(0x411D2429),
+                    //             offset: Offset(0, 1),
+                    //           )
+                    //         ],
+                    //         borderRadius: BorderRadius.circular(8 / sizeDevice),
+                    //       ),
+                    //       child: Padding(
+                    //         padding: EdgeInsetsDirectional.fromSTEB(
+                    //             8 / sizeDevice,
+                    //             8 / sizeDevice,
+                    //             8 / sizeDevice,
+                    //             8 / sizeDevice),
+                    //         child: Row(
+                    //           mainAxisSize: MainAxisSize.max,
+                    //           children: [
+                    //             ClipRRect(
+                    //               borderRadius: BorderRadius.circular(6),
+                    //               child: Image.asset(
+                    //                 'assets/images/manual_mode_icon.png',
+                    //                 width: 80 / sizeDevice,
+                    //                 height: 80 / sizeDevice,
+                    //                 fit: BoxFit.cover,
+                    //               ),
+                    //             ),
+                    //             Expanded(
+                    //               child: Padding(
+                    //                 padding: EdgeInsetsDirectional.fromSTEB(
+                    //                     8 / sizeDevice,
+                    //                     8 / sizeDevice,
+                    //                     4 / sizeDevice,
+                    //                     0),
+                    //                 child: Text(
+                    //                   // 'Vận hành bằng tay',
+                    //                   languageText(context, 'advanced_setup_0'),
+                    //                   style: FlutterFlowTheme.of(context)
+                    //                       .title3
+                    //                       .override(
+                    //                         fontFamily: 'Roboto Mono',
+                    //                         color: Color(0xFF0F1113),
+                    //                         fontSize: 24 / sizeDevice,
+                    //                         fontWeight: FontWeight.w500,
+                    //                       ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     //cài đặt offset
                     SetupOffsetWidget(),
 

@@ -38,6 +38,7 @@ public class Globals {
     public static boolean manAirGasket2Out;
     public static boolean manWaterCool;
     public static boolean manPump;
+    public static boolean manCompressorExhaust;
 
     //Button start/stop
     public static boolean btnStartStop = false;
@@ -67,7 +68,7 @@ public class Globals {
 
     //boiler
     public static boolean notEnoughSteam = false;
-    public static Integer delaySteamBoiler = 15;
+    public static Integer delaySteamBoiler = 20;
 
     //T&P
     public static Double temperature = 0.0;

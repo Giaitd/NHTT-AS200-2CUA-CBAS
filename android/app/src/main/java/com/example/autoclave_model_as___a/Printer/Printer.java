@@ -15,39 +15,29 @@ import asim.sdk.locker.SDKLocker;
 
 public class Printer {
 
-    public static TimerTask connectPrinter(Context context) {
-
-        Handler mTimerHandler = new Handler();
-        return new TimerTask() {
-            public void run() {
-                mTimerHandler.post(() -> {
-                    // chi ket noi may in khi enable va bat dau chay
-                    if (Globals.enablePrinter && Globals.btnStartStop) {
-                        SdkPrinter printerSDK = new SdkPrinter();
-                        List<DeviceInfo> devices = SDKLocker.getAllUsbDevicesHasDriver(context);
-                        for (DeviceInfo each : devices) {
-                            Globals.connectRS232 = printerSDK.connect(context);
-                            if (Globals.printerDetect) {
-                                if (Globals.enablePrinter && (Globals.numberAllowAddData == 6 || Globals.numberAllowAddData == 99)) {
-                                    if (Globals.numberAllowPrint == 0) {
-                                        for (String s : Globals.listDataPrinter) {
-                                            SdkPrinter.send(s);
-                                        }
-                                        Globals.numberAllowPrint++;
-                                    }
-                                }
+    public static void printerPrint(Context context) {
+        if (Globals.enablePrinter && Globals.btnStartStop && Globals.numberAllowPrint == 0) {
+            SdkPrinter printerSDK = new SdkPrinter();
+            List<DeviceInfo> devices = SDKLocker.getAllUsbDevicesHasDriver(context);
+            for (DeviceInfo each : devices) {
+                Globals.connectRS232 = printerSDK.connect(context);
+                if (Globals.printerDetect) {
+                    if (Globals.enablePrinter && (Globals.numberAllowAddData == 6 || Globals.numberAllowAddData == 99)) {
+                        if (Globals.numberAllowPrint == 0) {
+                            for (String s : Globals.listDataPrinter) {
+                                SdkPrinter.send(s);
                             }
-                            try {
-                                printerSDK.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            Globals.numberAllowPrint++;
                         }
                     }
-
-                });
+                }
+                try {
+                    printerSDK.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        };
+        }
     }
 
     public static TimerTask dataPrinter(Context context) {
@@ -98,7 +88,7 @@ public class Printer {
                         } else if (Globals.enablePrinter && Globals.errorStatus && Globals.numberAllowAddData < 10 && Globals.countTimeSterilization <= 1) {
                             //khi đang chạy mà dừng - đã hết tg tiệt trùng, chưa hết tg sấy khô
                             Globals.listDataPrinter.add(Globals.timeOfDay + ": Hoan thanh me hap");
-                            Globals.listDataPrinter.add(" ! Rac co the nong va uot");
+                            Globals.listDataPrinter.add(" ! Vat hap co the van uot");
                             Globals.listDataPrinter.add(" do chua chay het TG lam nguoi");
                             Globals.listDataPrinter.add(" NVVH: _________________");
                             Globals.listDataPrinter.add(" ");

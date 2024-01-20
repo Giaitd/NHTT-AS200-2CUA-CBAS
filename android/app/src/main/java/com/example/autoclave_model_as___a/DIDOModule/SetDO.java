@@ -46,10 +46,10 @@ public class SetDO {
     public static byte[] Q11On = {2, 5, 0, 11, -1, 0, -3, -53};     //van xả khí gioăng 2
     public static byte[] Q11Off = {2, 5, 0, 11, 0, 0, -68, 59};
 
-    public static byte[] Q12On = {2, 5, 0, 12, -1, 0, 76, 10};      //enable xả đáy nồi hơi
+    public static byte[] Q12On = {2, 5, 0, 12, -1, 0, 76, 10};      //đèn báo kết thúc
     public static byte[] Q12Off = {2, 5, 0, 12, 0, 0, 13, -6};
 
-    public static byte[] Q13On = {2, 5, 0, 13, -1, 0, 29, -54};
+    public static byte[] Q13On = {2, 5, 0, 13, -1, 0, 29, -54};     //xả đáy máy nén khí
     public static byte[] Q13Off = {2, 5, 0, 13, 0, 0, 92, 58};
 
     public static byte[] Q14On = {2, 5, 0, 14, -1, 0, -19, -54};
@@ -261,19 +261,35 @@ public class SetDO {
         }
     }
 
-    //enable boiler exhaust
-    public static void enableBoilerExhaustOn(Context context) {
-        if (!Globals.dOData.q1[4]) {
+    //complete
+    public static void ledCompleteOn(Context context){
+        if(Globals.dOData.q1[4]){
             Globals.bufferAll = Q12On;
             writeDO(context);
         }
     }
 
-    public static void enableBoilerExhaustOff(Context context) {
-
-        if (Globals.dOData.q1[4]) {
+    public static void ledCompleteOff(Context context){
+        if(!Globals.dOData.q1[4]){
             Globals.bufferAll = Q12Off;
             writeDO(context);
         }
     }
+
+    //compressor valve
+    public static void compressorValveOn(Context context){
+        if(Globals.dOData.q1[5]){
+            Globals.bufferAll = Q13On;
+            writeDO(context);
+        }
+    }
+
+    public static void compressorValveOff(Context context){
+        if(!Globals.dOData.q1[5]){
+            Globals.bufferAll = Q13Off;
+            writeDO(context);
+        }
+    }
+
+
 }

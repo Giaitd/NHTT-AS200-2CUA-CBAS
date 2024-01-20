@@ -85,6 +85,13 @@ public class ManualMode {
                 SetDO.waterPumpOff(context);
             }
 
+            //xa may nen khi
+            if(Globals.manCompressorExhaust){
+                SetDO.compressorValveOn(context);
+            }else {
+                 SetDO.compressorValveOff(context);
+            }
+
 
         }else {
             if(Globals.enableManualMode){

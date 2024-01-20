@@ -10,8 +10,8 @@ public class SteamBoiler {
     public static void boilerControll(Context context) {
 
 
-        //trang thai ket thuc, xa day thi khong dot
-        if (Globals.progress != 4 && !Globals.dIData.i0[6]) {
+        //trang thai ket thuc thi k chay
+        if (Globals.progress != 4) {
             //water pump
             if (Globals.dIData.i0[1] && !Globals.dIData.i0[3] && !Globals.dIData.i0[4]) {
                 SetDO.waterPumpOn(context);
@@ -21,15 +21,15 @@ public class SteamBoiler {
 
             //chưa đủ áp suất nồi hơi (chỉ dùng để chạy thanh đốt)
             // sau 20s từ lúc nhận tín hiệu báo thiếu áp mới chạy thanh đốt, để tránh TH đóng ngắt liên tục
-            if (!Globals.dIData.i0[7] && Globals.delaySteamBoiler > 0) {
+            if (Globals.dIData.i0[7] && Globals.delaySteamBoiler > 0) {
                 Globals.delaySteamBoiler--;
                 if (Globals.delaySteamBoiler == 0) {
                     Globals.notEnoughSteam = true;
                 }
                 Log.d("counter", String.valueOf(Globals.delaySteamBoiler));
-            } else if (Globals.dIData.i0[7]) {
+            } else if (!Globals.dIData.i0[7]) {
                 Globals.notEnoughSteam = false;
-                Globals.delaySteamBoiler = 15;
+                Globals.delaySteamBoiler = 20;
             }
 
             /*===== Boiler ======================================*/

@@ -3,6 +3,8 @@ package com.example.autoclave_model_as___a.Program;
 import android.content.Context;
 import android.os.Handler;
 
+import com.example.autoclave_model_as___a.Printer.Printer;
+
 import java.util.TimerTask;
 
 import io.flutter.Log;
@@ -35,7 +37,7 @@ public class ProgressAndStatus {
                             Globals.listError.add("   " + Globals.timeOfDay + "     " + Globals.day + "     Nhiệt độ buồng hấp quá cao");
                             Globals.err7 = true;
                         }
-                        if (Globals.pressure > (Globals.pressSet + 0.3) && !Globals.err8) {
+                        if (Globals.pressure > (Globals.pressSet + 0.45) && !Globals.err8) {
                             Globals.errorStatus = true;
                             Globals.listError.add("   " + Globals.timeOfDay + "     " + Globals.day + "     Áp suất buồng hấp quá cao");
                             Globals.err8 = true;
@@ -92,6 +94,9 @@ public class ProgressAndStatus {
                             Globals.statusDetailNumber = 6;
                             Globals.steamBoilerOk = false;
 
+                            //in khi xay ra loi
+                            Printer.printerPrint(context);
+
                         } else {
                             switch (Globals.runStop) {
                                 case 0:
@@ -136,6 +141,9 @@ public class ProgressAndStatus {
                                         Globals.status = 2; //Kết thúc
                                         Globals.statusDetail = "Mẻ hấp hoàn thành";
                                         Globals.statusDetailNumber = 5;
+
+                                        //in khi kết thúc
+                                        Printer.printerPrint(context);
                                     }
 
                                     break;
