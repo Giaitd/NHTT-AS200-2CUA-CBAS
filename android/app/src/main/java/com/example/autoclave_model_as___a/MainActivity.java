@@ -93,9 +93,8 @@ public class MainActivity extends FlutterActivity {
                         Globals.manAirGasket1Out = (boolean) arg.get("manAirGasket1Out");
                         Globals.manAirGasket2In = (boolean) arg.get("manAirGasket2In");
                         Globals.manAirGasket2Out = (boolean) arg.get("manAirGasket2Out");
-                        Globals.manWaterOutBoiler = (boolean) arg.get("manBoilerExhaust");
                         Globals.manCompressorExhaust = (boolean) arg.get("manCompressorExhaust");
-                        Globals.manPump = (boolean) arg.get("manPump");
+
 
 
                     } else if (call.method.equals("getData")) {

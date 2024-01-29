@@ -36,13 +36,6 @@ public class ManualMode {
                 SetDO.fastExhaustOff(context);
             }
 
-            //xa day noi hoi
-            if (Globals.manWaterOutBoiler) {
-                SetDO.waterBoilerOutOn(context);
-            } else {
-                SetDO.waterBoilerOutOff(context);
-            }
-
             //cap khi gioang 1
             if (Globals.manAirGasket1In) {
                 SetDO.airToGasket1On(context);
@@ -78,18 +71,18 @@ public class ManualMode {
                 SetDO.balanceOff(context);
             }
 
-            //bom nuoc
-            if (Globals.manPump) {
-                SetDO.waterPumpOn(context);
-            } else {
-                SetDO.waterPumpOff(context);
-            }
-
             //xa may nen khi
             if(Globals.manCompressorExhaust){
                 SetDO.compressorValveOn(context);
             }else {
                  SetDO.compressorValveOff(context);
+            }
+
+            //nc lam mat
+            if(Globals.manWaterCool){
+                SetDO.waterCoolingOn(context);
+            }else {
+                SetDO.waterCoolingOff(context);
             }
 
 
@@ -104,8 +97,8 @@ public class ManualMode {
                 SetDO.airOutGasket2Off(context);
                 SetDO.airToGasket2Off(context);
                 SetDO.balanceOff(context);
-                SetDO.waterPumpOff(context);
-                SetDO.waterBoilerOutOff(context);
+                SetDO.waterCoolingOff(context);
+                SetDO.compressorValveOff(context);
             }
 
             Globals.enableManualMode = false;

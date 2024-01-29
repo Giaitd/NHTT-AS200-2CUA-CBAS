@@ -82,9 +82,7 @@ class Screen1Service extends GetxService {
   RxBool man_xakhigioang1 = false.obs;
   RxBool man_capkhigioang2 = false.obs;
   RxBool man_xakhigioang2 = false.obs;
-  RxBool man_xadaynoihoi = false.obs;
   RxBool man_xamaynenkhi = false.obs;
-  RxBool man_bomnuoc = false.obs;
   RxBool manual_mode = false.obs;
   RxBool btnReset = true.obs;
 

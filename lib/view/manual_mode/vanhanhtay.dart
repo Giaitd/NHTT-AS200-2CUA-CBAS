@@ -40,9 +40,7 @@ class _VHbangtayWidgetState extends State<VHbangtayWidget> {
       "manAirGasket1Out": screen1service.man_xakhigioang1.value,
       "manAirGasket2In": screen1service.man_capkhigioang2.value,
       "manAirGasket2Out": screen1service.man_xakhigioang2.value,
-      "manBoilerExhaust": screen1service.man_xadaynoihoi.value,
       "manCompressorExhaust": screen1service.man_xamaynenkhi.value,
-      "manPump": screen1service.man_bomnuoc.value,
     };
     try {
       await platform.invokeMethod(
@@ -71,8 +69,6 @@ class _VHbangtayWidgetState extends State<VHbangtayWidget> {
           screen1service.man_xakhigioang1.value = false;
           screen1service.man_capkhigioang2.value = false;
           screen1service.man_xakhigioang2.value = false;
-          screen1service.man_xadaynoihoi.value = false;
-          screen1service.man_bomnuoc.value = false;
           screen1service.manual_mode.value = false;
           screen1service.man_xamaynenkhi.value = false;
           _sendButtonData();
@@ -221,6 +217,17 @@ class _VHbangtayWidgetState extends State<VHbangtayWidget> {
                       height: 132 / sizeDevice,
                       child: Row(
                         children: [
+                          //van nc làm mát
+                          manualButton(context,
+                              btnName: languageText(context, 'man_mode_15'),
+                              active: screen1service.man_capnuocmat.value,
+                              function: () {
+                            setState(() {
+                              screen1service.man_capnuocmat.value =
+                                  !screen1service.man_capnuocmat.value;
+                            });
+                          }),
+
                           //van xả máy nén khí
                           manualButton(context,
                               btnName: languageText(context, 'man_mode_14'),

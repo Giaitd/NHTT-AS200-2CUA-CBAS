@@ -51,155 +51,152 @@ class _CaidatnhanhWidgetState extends State<CaidatnhanhWidget> {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     children: [
-                      //trạng thái thiết bị
+                      //van hanh tay
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16 / sizeDevice, 0, 16 / sizeDevice, 8),
-                        child: InkWell(
-                          onTap: () async {
-                            toPage(context, TrangThaiIOWidget());
-                          },
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 3,
-                                  color: Color(0x411D2429),
-                                  offset: Offset(0, 1),
-                                )
-                              ],
-                              borderRadius:
-                                  BorderRadius.circular(8 / sizeDevice),
-                            ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.all(8 / sizeDevice),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0,
-                                        1 / sizeDevice,
-                                        1 / sizeDevice,
-                                        1 / sizeDevice),
-                                    child: Image.asset(
-                                      'assets/images/onoff.png',
-                                      width: 80 / sizeDevice,
-                                      height: 80 / sizeDevice,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    child: Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8 / sizeDevice,
-                                            4 / sizeDevice,
-                                            4 / sizeDevice,
-                                            0),
-                                        child: Text(
-                                          // trạng thái thiết bị,
-                                          languageText(
-                                              context, 'advanced_setup_13'),
-                                          style: FlutterFlowTheme.of(context)
-                                              .title3
-                                              .override(
-                                                fontFamily: 'Roboto Mono',
-                                                color: Color(0xFF0F1113),
-                                                fontSize: 24 / sizeDevice,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
+                        child: Ink(
+                          child: InkWell(
+                            onTap: () async {
+                              if (screen1service.startStop == true) {
+                              } else {
+                                setState(() {
+                                  screen1service.manual_mode.value = true;
+                                });
+                                toPage(context, VHbangtayWidget());
+                              }
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 3,
+                                    color: Color(0x411D2429),
+                                    offset: Offset(0, 1),
+                                  )
+                                ],
+                                borderRadius:
+                                    BorderRadius.circular(8 / sizeDevice),
+                              ),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.all(8 / sizeDevice),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0,
+                                          1 / sizeDevice,
+                                          1 / sizeDevice,
+                                          1 / sizeDevice),
+                                      child: Image.asset(
+                                        'assets/images/manual_mode_icon.png',
+                                        width: 80 / sizeDevice,
+                                        height: 80 / sizeDevice,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8 / sizeDevice,
+                                          4 / sizeDevice,
+                                          4 / sizeDevice,
+                                          0),
+                                      child: Text(
+                                        // vận hành tay
+                                        languageText(
+                                            context, 'advanced_setup_0'),
+                                        style: FlutterFlowTheme.of(context)
+                                            .title3
+                                            .override(
+                                              fontFamily: 'Roboto Mono',
+                                              color: Color(0xFF0F1113),
+                                              fontSize: 24 / sizeDevice,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
 
-                      //van hanh tay
+                      //trạng thái thiết bị
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16 / sizeDevice, 0, 16 / sizeDevice, 8),
-                        child: InkWell(
-                          onTap: () async {
-                            if (screen1service.startStop == true) {
-                            } else {
-                              setState(() {
-                                screen1service.manual_mode.value = true;
-                              });
-                              toPage(context, VHbangtayWidget());
-                            }
-                          },
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 3,
-                                  color: Color(0x411D2429),
-                                  offset: Offset(0, 1),
-                                )
-                              ],
-                              borderRadius:
-                                  BorderRadius.circular(8 / sizeDevice),
-                            ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.all(8 / sizeDevice),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0,
-                                        1 / sizeDevice,
-                                        1 / sizeDevice,
-                                        1 / sizeDevice),
-                                    child: Image.asset(
-                                      'assets/images/manual_mode_icon.png',
-                                      width: 80 / sizeDevice,
-                                      height: 80 / sizeDevice,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    child: Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8 / sizeDevice,
-                                            4 / sizeDevice,
-                                            4 / sizeDevice,
-                                            0),
-                                        child: Text(
-                                          // vận hành tay
-                                          languageText(
-                                              context, 'advanced_setup_0'),
-                                          style: FlutterFlowTheme.of(context)
-                                              .title3
-                                              .override(
-                                                fontFamily: 'Roboto Mono',
-                                                color: Color(0xFF0F1113),
-                                                fontSize: 24 / sizeDevice,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
+                        child: Ink(
+                          child: InkWell(
+                            onTap: () async {
+                              toPage(context, TrangThaiIOWidget());
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 3,
+                                    color: Color(0x411D2429),
+                                    offset: Offset(0, 1),
+                                  )
+                                ],
+                                borderRadius:
+                                    BorderRadius.circular(8 / sizeDevice),
+                              ),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.all(8 / sizeDevice),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0,
+                                          1 / sizeDevice,
+                                          1 / sizeDevice,
+                                          1 / sizeDevice),
+                                      child: Image.asset(
+                                        'assets/images/onoff.png',
+                                        width: 80 / sizeDevice,
+                                        height: 80 / sizeDevice,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8 / sizeDevice,
+                                          4 / sizeDevice,
+                                          4 / sizeDevice,
+                                          0),
+                                      child: Text(
+                                        // trạng thái thiết bị,
+                                        languageText(
+                                            context, 'advanced_setup_13'),
+                                        style: FlutterFlowTheme.of(context)
+                                            .title3
+                                            .override(
+                                              fontFamily: 'Roboto Mono',
+                                              color: Color(0xFF0F1113),
+                                              fontSize: 24 / sizeDevice,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
+
                       //on/off máy in
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(

@@ -8,7 +8,8 @@ import asim.sdk.tempandhum.SDKTemperatureAndHumidity;
 public class Sdk_RTD_AI extends SDKTemperatureAndHumidity {
     public static String checkMustHave;
     public static String checkMustHave2;
-
+    public int READ_WAIT_MILLIS = 400;
+    public int WRITE_WAIT_MILLIS = 400;
 
     public RTDData getTempData() {
 
@@ -59,8 +60,8 @@ public class Sdk_RTD_AI extends SDKTemperatureAndHumidity {
             if (checkMustHave2.equals("030304")) {
                 String press1 = Utils.bytesToHex(new byte[]{bufferStatus[3], bufferStatus[4]});
                 String press2 = Utils.bytesToHex(new byte[]{bufferStatus[5], bufferStatus[6]});
-                double dt1 = ((double) Integer.parseInt(press1, 16) * 0.0001);
-                double dt2 = (double) Integer.parseInt(press2, 16) * 0.0001;
+                double dt1 = (double) (Integer.parseInt(press1, 16) * 0.001);
+                double dt2 = (double) (Integer.parseInt(press2, 16) * 0.001);
 
                 //tính theo 0-10 V: -1 -> 9 kgf/cm2
                 double press1Data = dt1 - 1.00;

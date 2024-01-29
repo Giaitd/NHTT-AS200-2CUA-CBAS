@@ -52,7 +52,7 @@ public class SetDO {
     public static byte[] Q13On = {2, 5, 0, 13, -1, 0, 29, -54};     //xả đáy máy nén khí
     public static byte[] Q13Off = {2, 5, 0, 13, 0, 0, 92, 58};
 
-    public static byte[] Q14On = {2, 5, 0, 14, -1, 0, -19, -54};
+    public static byte[] Q14On = {2, 5, 0, 14, -1, 0, -19, -54};    //cấp nước làm mát
     public static byte[] Q14Off = {2, 5, 0, 14, 0, 0, -84, 58};
 
     public static byte[] Q15On = {2, 5, 0, 15, -1, 0, -68, 10};
@@ -262,31 +262,48 @@ public class SetDO {
     }
 
     //complete
-    public static void ledCompleteOn(Context context){
-        if(Globals.dOData.q1[4]){
+    public static void ledCompleteOn(Context context) {
+        if (!Globals.dOData.q1[4]) {
             Globals.bufferAll = Q12On;
             writeDO(context);
         }
     }
 
-    public static void ledCompleteOff(Context context){
-        if(!Globals.dOData.q1[4]){
+    public static void ledCompleteOff(Context context) {
+
+        if (Globals.dOData.q1[4]) {
             Globals.bufferAll = Q12Off;
             writeDO(context);
         }
     }
 
     //compressor valve
-    public static void compressorValveOn(Context context){
-        if(Globals.dOData.q1[5]){
+    public static void compressorValveOn(Context context) {
+        if (!Globals.dOData.q1[5]) {
             Globals.bufferAll = Q13On;
             writeDO(context);
         }
     }
 
-    public static void compressorValveOff(Context context){
-        if(!Globals.dOData.q1[5]){
+    public static void compressorValveOff(Context context) {
+
+        if (Globals.dOData.q1[5]) {
             Globals.bufferAll = Q13Off;
+            writeDO(context);
+        }
+    }
+
+    //water cooling
+    public static void waterCoolingOn(Context context) {
+        if (!Globals.dOData.q1[6]) {
+            Globals.bufferAll = Q14On;
+            writeDO(context);
+        }
+    }
+
+    public static void waterCoolingOff(Context context) {
+        if (Globals.dOData.q1[6]) {
+            Globals.bufferAll = Q14Off;
             writeDO(context);
         }
     }

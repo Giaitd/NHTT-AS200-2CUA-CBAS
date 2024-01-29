@@ -17,8 +17,8 @@ import asim.sdk.locker.DeviceInfo;
 public class SdkDIDOModule {
     public UsbSerialPort usbSerialPort;
     public boolean connected = false;
-    public int READ_WAIT_MILLIS = 500;
-    public int WRITE_WAIT_MILLIS = 500;
+    public int READ_WAIT_MILLIS = 400;
+    public int WRITE_WAIT_MILLIS = 400;
     public static String checkReadDI, checkReadDO;
     UsbDeviceConnection usbConnection;
 

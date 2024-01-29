@@ -43,6 +43,10 @@ public class ControlOutput extends android.app.Service {
                         SteamBoiler.boilerControll(context);
 
                         if (!Globals.manualMode) {
+                            //mo van cap nc mat khi mo van xa nhanh or may hck
+                            if (Globals.dOData.q0[3] || Globals.dOData.q0[0]) {
+                                SetDO.waterCoolingOn(context);
+                            } else SetDO.waterCoolingOff(context);
                             switch (Globals.runStop) {
 
                                 //chua an start
@@ -112,7 +116,7 @@ public class ControlOutput extends android.app.Service {
                                     SetDO.waterBoilerOutOff(context);
 
                                     //cấp khí gioăng
-                                    if (Globals.pressure > 0.15){
+                                    if (Globals.pressure > 0.15) {
                                         SetDO.airToGasket1On(context);
                                         SetDO.airToGasket2On(context);
                                     }
@@ -140,6 +144,7 @@ public class ControlOutput extends android.app.Service {
                                         case 1:  //air removal state
                                             //cấp khí gioăng
                                             SetDO.airToGasket1On(context);
+                                            SetDO.airToGasket2On(context);
 
                                             if (Globals.steamBoilerOk) {
                                                 //indicate time countdown
@@ -249,11 +254,11 @@ public class ControlOutput extends android.app.Service {
                                             if (Globals.pressure <= 0.1) {
                                                 //countdown time????????????????????
                                                 if (Globals.countTimeDry > 0) {
-                                                    if (Globals.pressure < -0.2) {
+                                                    if (Globals.countTimeDry < 20) {
                                                         SetDO.airToGasket1Off(context);
                                                         SetDO.airToGasket2Off(context);
-                                                        SetDO.airToGasket1On(context);
-                                                        SetDO.airToGasket2On(context);
+                                                        SetDO.airOutGasket1On(context);
+                                                        SetDO.airOutGasket2On(context);
                                                     }
                                                     SetDO.vacuumOn(context);
                                                     Globals.countTimeDry--;

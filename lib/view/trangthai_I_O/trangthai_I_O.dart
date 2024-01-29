@@ -237,7 +237,7 @@ class _TrangThaiIOWidgetState extends State<TrangThaiIOWidget> {
                       getIO_State(context, languageText(context, 'do_13'),
                           value: screen1service.q1[5]),
                       getIO_State(context, languageText(context, 'do_12'),
-                          value: screen1service.q1[4]),
+                          value: screen1service.q1[6]),
                     ]),
                   ),
                 ]),

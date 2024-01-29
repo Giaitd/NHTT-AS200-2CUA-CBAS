@@ -31,13 +31,11 @@ public class Globals {
     public static boolean manSlowExhaust;
     public static boolean manVacuum;
     public static boolean manBalance;
-    public static boolean manWaterOutBoiler;
     public static boolean manAirGasket1In;
     public static boolean manAirGasket1Out;
     public static boolean manAirGasket2In;
     public static boolean manAirGasket2Out;
     public static boolean manWaterCool;
-    public static boolean manPump;
     public static boolean manCompressorExhaust;
 
     //Button start/stop
