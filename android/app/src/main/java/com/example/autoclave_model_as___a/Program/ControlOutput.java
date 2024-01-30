@@ -33,8 +33,7 @@ public class ControlOutput extends android.app.Service {
                             Globals.allowStart = true;
                         } else {
                             Globals.allowStart = false;
-                            //tắt đèn báo kết thúc
-                            SetDO.ledCompleteOff(context);
+
                         }
                         //van hanh tay
                         ManualMode.manMode(context);
@@ -51,6 +50,8 @@ public class ControlOutput extends android.app.Service {
 
                                 //chua an start
                                 case 0:
+                                    //tắt đèn báo kết thúc
+                                    SetDO.ledCompleteOff(context);
 
                                     //cho phép xả đáy nồi hơi
                                     SetDO.waterBoilerOutOn(context);
@@ -222,7 +223,7 @@ public class ControlOutput extends android.app.Service {
                                                     SetDO.fastExhaustOn(context);
                                                 } else SetDO.fastExhaustOff(context);
                                             } else {
-                                                if (Globals.counterSteamToChamber % 60 == 1 || Globals.counterSteamToChamber % 60 == 0) {
+                                                if (Globals.counterSteamToChamber % 40 == 1 || Globals.counterSteamToChamber % 40 == 0) {
                                                     SetDO.fastExhaustOn(context);
                                                 } else SetDO.fastExhaustOff(context);
                                             }

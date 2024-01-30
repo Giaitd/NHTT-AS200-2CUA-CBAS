@@ -333,35 +333,30 @@ class _NhapThongSoCTThayDoiState extends State<NhapThongSoCTThayDoi> {
                                       children: [
                                         Container(
                                           width: 150 / sizeDevice,
-                                          child: Expanded(
-                                            child: TextFormField(
-                                              controller: programService
-                                                  .timeDrySetController.value,
-                                              obscureText: false,
-                                              decoration: InputDecoration(
-                                                hintText: '1 - 9999',
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyText2
-                                                    .override(
-                                                      fontFamily: 'Roboto Mono',
-                                                      color: Colors.grey,
-                                                      fontSize: 18 / sizeDevice,
-                                                    ),
-                                              ),
-                                              style: FlutterFlowTheme.of(
+                                          child: TextFormField(
+                                            controller: programService
+                                                .timeDrySetController.value,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              hintText: '1 - 9999',
+                                              hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyText2
                                                   .override(
                                                     fontFamily: 'Roboto Mono',
-                                                    color: Colors.black,
-                                                    fontSize: 32 / sizeDevice,
-                                                    fontWeight:
-                                                        FontWeight.normal,
+                                                    color: Colors.grey,
+                                                    fontSize: 18 / sizeDevice,
                                                   ),
-                                              keyboardType:
-                                                  TextInputType.number,
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText2
+                                                .override(
+                                                  fontFamily: 'Roboto Mono',
+                                                  color: Colors.black,
+                                                  fontSize: 32 / sizeDevice,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                            keyboardType: TextInputType.number,
                                           ),
                                         ),
                                         Text(

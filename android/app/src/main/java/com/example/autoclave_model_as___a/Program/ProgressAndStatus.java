@@ -37,7 +37,7 @@ public class ProgressAndStatus {
                             Globals.listError.add("   " + Globals.timeOfDay + "     " + Globals.day + "     Nhiệt độ buồng hấp quá cao");
                             Globals.err7 = true;
                         }
-                        if (Globals.pressure > (Globals.pressSet + 0.45) && !Globals.err8) {
+                        if (Globals.pressure > (Globals.pressSet + 0.5) && !Globals.err8) {
                             Globals.errorStatus = true;
                             Globals.listError.add("   " + Globals.timeOfDay + "     " + Globals.day + "     Áp suất buồng hấp quá cao");
                             Globals.err8 = true;
